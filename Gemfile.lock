@@ -8,6 +8,7 @@ GEM
       net-http
     net-http (0.4.1)
       uri
+    rake (13.1.0)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
@@ -29,6 +30,7 @@ PLATFORMS
 
 DEPENDENCIES
   faraday
+  rake
   rspec
 
 BUNDLED WITH
