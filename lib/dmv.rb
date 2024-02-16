@@ -14,7 +14,9 @@ class Dmv
   end
 
   def facilities_offering_service(service)
-    @facilities.find do |facility|
+    facility_response = []
+    # binding.pry
+    @facilities.find_all do |facility|
       facility.services.include?(service)
     end
   end
