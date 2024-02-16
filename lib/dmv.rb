@@ -2,6 +2,11 @@ class Dmv
 
   def initialize
     @facilities = []
+    facilities = [@facility_1,@facility_2,@facility_3]
+  end
+
+  def facilities 
+    @facilities 
   end
 
   def add_facility(facility)
