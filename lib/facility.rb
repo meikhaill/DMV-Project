@@ -16,4 +16,15 @@ class Facility
   def add_service(service)
     @services << service
   end
+
+  def administer_written_test(registrant)
+    @registrant = registrant
+    if @registrant.age >= 16 && @registrant.permit == true
+      @registrant.license_data[:written] = true
+    elsif @registrant.age < 16 || @registrant.permit == false
+      puts "not permissible"
+    end
+    
+  end
+  
 end
