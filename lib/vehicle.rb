@@ -1,7 +1,7 @@
 require 'date'
 
 class Vehicle
-  attr_accessor :registration_time
+  attr_accessor :registration_date
 
   attr_reader :vin,
               :year,
@@ -15,7 +15,7 @@ class Vehicle
     @make = vehicle_details[:make]
     @model = vehicle_details[:model]
     @engine = vehicle_details[:engine]
-    @registration_date = registration_date
+    @registration_date = nil
   end
 
   def registration_date

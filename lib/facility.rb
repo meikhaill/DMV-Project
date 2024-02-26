@@ -30,6 +30,7 @@ class Facility
     time1 = Time.now
     registered = []
     registered.push(vehicle)
+    vehicle.registration_date = Time.now
     # registration_time = Time.now
     # @registered << vehicle
     # vehicle.registration_time = Time.now
