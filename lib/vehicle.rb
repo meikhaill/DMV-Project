@@ -1,6 +1,8 @@
 require 'date'
 
 class Vehicle
+  attr_accessor :registration_time
+
   attr_reader :vin,
               :year,
               :make,
@@ -17,7 +19,7 @@ class Vehicle
   end
 
   def registration_date
-    @registration_date
+    @registration_date = Time.now
   end
 
   def antique?

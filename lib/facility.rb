@@ -8,7 +8,9 @@ class Facility
     @address = thing[:address]
     @phone = thing[:phone]
     @services = []
-    @registered []
+    @registered = []
+    time1 = Time.now
+    @registration_time = time1
   end
   
   def name
@@ -25,9 +27,16 @@ class Facility
 
   def register_vehicle(vehicle)
     @vehicle = vehicle
-    @registered = registered
+    time1 = Time.now
     registered = []
     registered.push(vehicle)
+    # registration_time = Time.now
+    # @registered << vehicle
+    # vehicle.registration_time = Time.now
+  end
+
+  def registration_time(vehicle)
+    @registration_time
   end
 
   
