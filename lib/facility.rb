@@ -31,6 +31,9 @@ class Facility
     @registered << vehicle
     vehicle.registration_date = Time.now
     @fees += 100
+     if Date.today.year - vehicle.year > 25
+      plate_type = :antique
+    end
 
     # registration_time = Time.now
     # @registered << vehicle
