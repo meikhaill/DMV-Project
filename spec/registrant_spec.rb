@@ -19,7 +19,6 @@ describe Registrant do
 
   describe '#license_data' do 
     it 'returns license data when called on registrant' do
-      @registrant.license_data
       expect(@registrant.license_data).to eq({:written=>false, :license=>false, :renewed=>false})
     end
   end
