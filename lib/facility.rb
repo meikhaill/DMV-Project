@@ -1,5 +1,5 @@
 class Facility
-  attr_reader :name, :address, :phone, :services
+  attr_reader :name, :address, :phone, :services, :fees
 
   
 
@@ -9,6 +9,7 @@ class Facility
     @phone = thing[:phone]
     @services = []
     @registered = []
+    @fees = 0
   end
   
   def name
@@ -20,22 +21,24 @@ class Facility
   end
 
   def collected_fees
-    fees = 0
+    @fees
   end
 
   def register_vehicle(vehicle)
+    @fees ||=  0
     @vehicle = vehicle
     time1 = Time.now
-    registered = []
-    registered.push(vehicle)
+    @registered << vehicle
     vehicle.registration_date = Time.now
+    @fees += 100
+
     # registration_time = Time.now
     # @registered << vehicle
     # vehicle.registration_time = Time.now
   end
 
-  def registration_time(vehicle)
-    @registration_time
+  def registration_date(vehicle)
+    @registration_date
   end
 
   
