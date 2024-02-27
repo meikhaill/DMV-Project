@@ -1,5 +1,5 @@
 class Dmv
-
+  
   def initialize
     @facilities = []
     facilities = [@facility_1,@facility_2,@facility_3]

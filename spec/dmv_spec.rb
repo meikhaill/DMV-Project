@@ -21,6 +21,7 @@ RSpec.describe Dmv do
       expect(@dmv.facilities).to eq([])
       @dmv.add_facility(@facility_1)
       expect(@dmv.facilities).to eq([@facility_1])
+      expect(@dmv.facilities.size).to eq(1)
     end
   end
 

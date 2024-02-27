@@ -1,8 +1,6 @@
 class Facility
   attr_reader :name, :address, :phone, :services, :fees
 
-  
-
   def initialize(thing)
     @name = thing[:name]
     @address = thing[:address]
@@ -50,34 +48,26 @@ class Facility
     else
       puts "No"
     end
-
   end
 
   def registration_date(vehicle)
     @registration_date
   end
 
-  
-
   def add_service(service)
     @services << service
   end
 
   def administer_written_test(registrant)
-    @registrant = registrant
-    if @registrant.age >= 16 && @registrant.permit == true
-      @registrant.license_data[:written] = true
-    elsif @registrant.age < 16 || @registrant.permit == false
-      puts "not permissible"
+    if @services.include('Written Test')
+      @registrant = registrant
+      if @registrant.age >= 16 && @registrant.permit == true
+        @registrant.license_data[:written] = true
+      elsif @registrant.age < 16 || @registrant.permit == false
+        puts "not permissible"
+      end
+    else
+      puts "NO"
     end
-    
   end
-  
 end
-
-# these dont work
-
-# facility_2.register_vehicle(bolt)
-# #=> nil
-# pry(main)> bolt.plate_type
-# #=> :ev
