@@ -25,19 +25,32 @@ class Facility
   end
 
   def register_vehicle(vehicle)
-    @fees ||=  0
-    @vehicle = vehicle
-    time1 = Time.now
-    @registered << vehicle
-    vehicle.registration_date = Time.now
-    @fees += 100
-     if Date.today.year - vehicle.year > 25
-      plate_type = :antique
+    if vehicle.registration_date == nil
+
+      @fees ||=  0
+      @vehicle = vehicle
+      time1 = Time.now
+      @registered << vehicle
+      vehicle.registration_date = Time.now
+      
+      if vehicle.plate_type == :regular || vehicle.plate_type == :antique
+        @fees += 100
+      elsif
+        vehicle.engine == :ev
+        @fees += 125
+      end
+      
+      if Date.today.year - vehicle.year > 25
+        vehicle.plate_type = :antique 
+      elsif vehicle.engine == :ev
+        vehicle.plate_type = :ev
+      else 
+        vehicle.plate_type = :regular
+      end
+    else
+      puts "No"
     end
 
-    # registration_time = Time.now
-    # @registered << vehicle
-    # vehicle.registration_time = Time.now
   end
 
   def registration_date(vehicle)
@@ -61,3 +74,10 @@ class Facility
   end
   
 end
+
+# these dont work
+
+# facility_2.register_vehicle(bolt)
+# #=> nil
+# pry(main)> bolt.plate_type
+# #=> :ev
