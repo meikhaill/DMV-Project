@@ -9,8 +9,6 @@ class Facility
     @phone = thing[:phone]
     @services = []
     @registered = []
-    time1 = Time.now
-    @registration_time = time1
   end
   
   def name
