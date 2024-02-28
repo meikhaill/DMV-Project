@@ -58,8 +58,43 @@ class Facility
     @services << service
   end
 
+  def renew_drivers_license(registrant)
+     if @services.include?('Renew License')
+      @registrant = registrant
+      if @registrant.license_data[:license] == true 
+        @registrant.license_data[:renewed] = true
+      elsif @registrant.license_data[:license] == false
+        puts "not permissible"
+      else 
+        puts "nil value"
+      end
+    end
+  end
+
+  def administer_road_test(registrant)
+    if @services.include?('Road Test')
+      @registrant = registrant
+      if @registrant.license_data[:written] == true 
+        @registrant.license_data[:license] = true
+      elsif @registrant.license_data[:written] == false
+        puts "not permissible"
+      end
+    else
+      puts "NO"
+    end
+    # if @services.include?('Road Test')
+    #   @registrant = registrant
+    #   if @registrant.license_data[:written] == true
+    #     @registrant.license_data[:license] == true
+    #   else
+    #     @registrant.license_data[:license] == false
+    #   end
+    # end
+
+  end
+
   def administer_written_test(registrant)
-    if @services.include('Written Test')
+    if @services.include?('Written Test')
       @registrant = registrant
       if @registrant.age >= 16 && @registrant.permit == true
         @registrant.license_data[:written] = true
