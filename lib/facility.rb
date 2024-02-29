@@ -58,6 +58,32 @@ class Facility
     @services << service
   end
 
+  def self.create_from_new_york(locations)
+    locations.map do |location|
+      Facility.new(
+        name: location[:office_name],
+          address: location[:street_address_line_1],
+          city: location[:city],
+          state: location[:state],
+          zip_code: location[:zip_code],
+          phone: location[:public_phone_number],
+      )
+    end
+  end
+
+    def self.create_from_missouri(locations)
+    locations.map do |location|
+      Facility.new(
+        name: location[:office_name],
+          address: location[:street_address_line_1],
+          city: location[:city],
+          state: location[:state],
+          zip_code: location[:zip_code],
+          phone: location[:public_phone_number],
+      )
+    end
+  end
+
   def renew_drivers_license(registrant)
      if @services.include?('Renew License')
       @registrant = registrant
